@@ -1,0 +1,87 @@
+
+  // 2. 购买能量值
+  // 3. 创建NFT类别
+  // axios({
+  //   method: "post",
+  //   url: "/avata/v1beta1/nft/classes",
+  //   data: {
+  //     name: "test_smoke",
+  //     class_id: "eyes",
+  //     symbols: "smoke@ls",
+  //     description: "普通图片描述",
+  //     url: "https://nftstorage.link/ipfs/bafkreibjzy6vxiaxx5h3etccmwsrqamo4cx4wcny3euktzhtaicg3xfvse",
+  //     url_hash: dataHash,
+  //     owner: testnetAccountMsg.account,
+  //     data: "与实物相关联 详细地址: http://124.220.135.188/post/123",
+  // tag: {
+  //   type: "sang",
+  //   behavior: "good",
+  // },
+  //     operation_id: Date.now() + testnetAccountMsg.operation_id.slice(13),
+  //   },
+  // })
+  // .then((resBody) => {
+  // 不可使用重复的 class_id
+  // data: {
+  //   task_id: '16673529914110z3p2I415q2C4p9G0EimMZMnRTVSy5nOM9mHHsXM0zvO1FDgmx9',
+  //   operation_id: '16673529914110z3p2I415q2C4p9G0EimMZMnRTVSy5nOM9mHHsXM0zvO1FDgmx9'
+  // }
+  // })
+  // .catch((errBody) => {
+  //   console.log(errBody);
+  // 错误类型到这里去找 https://forum.avata.bianjie.ai/t/topic/54
+  // });
+
+  // 5. 查询NFT 类别详情
+
+  // 6. 发行 NFT
+  // axios({
+  //   method: "post",
+  //   url: "/avata/v1beta1/nft/nfts/eyes",
+  //   data: {
+  //     name: "wuya",
+  //     uri: "https://nftstorage.link/ipfs/bafkreibjzy6vxiaxx5h3etccmwsrqamo4cx4wcny3euktzhtaicg3xfvse",
+  //     uri_hash: dataHash,
+  //     data: "与实物相关联 详细地址: http://124.220.135.188/post/123",
+  //     // recipient: "发行者地址",
+  //     operation_id: getOperationId(),
+  //   },
+  // })
+  //   .then((res) => {
+  // {
+  //   task_id: '16673544583990z3p2I415q2C4p9G0EimMZMnRTVSy5nOM9mHHsXM0zvO1FDgmx9',
+  //   operation_id: '16673544583990z3p2I415q2C4p9G0EimMZMnRTVSy5nOM9mHHsXM0zvO1FDgmx9'
+  // }
+  // })
+  // .catch(console.log);
+  // 7. 查询 NFT
+  // axios({
+  //   method: "get",
+  //   url: "/avata/v1beta1/nft/nfts",
+  //   params: {
+  //     class_id: "eyes", // 指定类别
+  //   },
+  // })
+  //   .then(console.log)
+  //   .catch(console.log);
+  // 8. 查询 NFT 详情
+  // axios({
+  //   method: "get",
+  //   url: "/avata/v1beta1/nft/nfts/eyes/avatajwjsfvmeqnh50oqmaoks8jpuqek",
+  // })
+  //   .then(console.log)
+  //   .catch(console.log);
+  // 9. 销毁 NFT
+  // axios({
+  //   method: "delete",
+  //   url: `/avata/v1beta1/nft/nfts/eyes/${testnetAccountMsg.account}/avatavqrrajk6rw1lz8utjjgh4os30a1`,
+  //   data: {
+  //     operation_id: getOperationId(),
+  //   },
+  // })
+  //   .then(console.log)
+  // {
+  //   task_id: '16673553415100z3p2I415q2C4p9G0EimMZMnRTVSy5nOM9mHHsXM0zvO1FDgmx9',
+  //   operation_id: '16673553415100z3p2I415q2C4p9G0EimMZMnRTVSy5nOM9mHHsXM0zvO1FDgmx9'
+  // }
+  // .catch(console.log);

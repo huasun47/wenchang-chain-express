@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="https://wenchang.bianjie.ai/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css" />
+    <title>文昌链测试应用</title>
+    <style>
+      :root {
+        --primary: #9b4dca;
+      }
+      body {
+        font-family: 'Roboto Slab', serif;
+      }
+      .main {
+        padding: 4px;
+      }
+      .head {
+        text-align: center;
+        padding: 18px;
+        margin-bottom: 28px;
+        border-bottom: 4px dashed var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container main">
+      <div class="head">
+        <h1>文昌链交互 （测试网）</h1>
+        <br />
+        <div class="row">
+          <div class="column"><a href="https://wenchang.bianjie.ai/">文昌链官网</a></div>
+          <div class="column"><a href="https://console.avata.bianjie.ai/">文昌链管理平台</a></div>
+          <div class="column"><a href="https://stage.apis.avata.bianjie.ai/">文昌链技术文档</a></div>
+          <div class="column"><a href="https://forum.avata.bianjie.ai/">文昌链社区论坛</a></div>
+        </div>
+      </div>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" placeholder="账户名称（英文）" id="name" value="nftStorage3" />
+        <button class="button" id="create_account">1. 创建链账户</button>
+        <pre>
+        <code id="name_code"></code>
+      </pre>
+      </div>
+      <hr />
+      <div>
+        <label for="name">Account</label>
+        <input type="text" placeholder="账户地址" id="account" value="" disabled />
+        <button class="button" id="check_account">2. 查询链账户</button>
+        <pre>
+          <code id="accounts_code"></code>
+        </pre>
+      </div>
+      <hr />
+      <div>
+        <button class="button" id="check_nfts_classes">查询NFT类别</button>
+        <pre>
+          <code id="nfts_classes_code"></code>
+        </pre>
+      </div>
+      <hr />
+      <div>
+        <label for="name">类别ID</label>
+        <input type="text" placeholder="类别ID" id="classid" value="" />
+        <button class="button" id="check_nfts_classes_detail">查询NFT类别详情</button>
+        <pre>
+          <code id="nfts_classes_detail_code"></code>
+        </pre>
+      </div>
+    </div>
+    <script type="module">
+      import 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js';
+
+      $('#create_account').click(function () {
+        const name = $('#name').val();
+        $.ajax({
+          method: 'post',
+          url: '/create/account',
+          data: {
+            name,
+          },
+          success(res) {
+            $('#name_code').html(JSON.stringify(res, null, 2));
+            $('#account').val(res.account);
+          },
+        });
+      });
+      $('#check_account').click(function () {
+        const account = $('#account').val();
+        $.ajax({
+          method: 'get',
+          url: `/account`,
+          data: {
+            account,
+          },
+          success(res) {
+            $('#accounts_code').html(JSON.stringify(res, null, 2));
+          },
+        });
+      });
+      $('#check_nfts_classes').click(function () {
+        $.ajax({
+          method: 'get',
+          url: `/nfts/classes`,
+          success(res) {
+            $('#nfts_classes_code').html(JSON.stringify(res, null, 2));
+          },
+        });
+      });
+      $('#check_nfts_classes_detail').click(function () {
+        const classid = $('#classid').val();
+        $.ajax({
+          method: 'get',
+          url: `/nfts/classes/${classid}`,
+          success(res) {
+            $('#nfts_classes_detail_code').html(JSON.stringify(res, null, 2));
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "废土鸦",
+  "description": "smoking boom",
+  "description_url": [],
+  "external_url": "",
+  "image": "https://ipfs.io/ipfs/QmUNVJwoGRPCfshonMJBJ6jna1YAhgfvm2CKDfRvUtccvA",
+  "animation_url": "",
+  "background_color": "#ff0000",
+  "attributes": [
+    {
+      "trait_type": "Base",
+      "value": "Starfish"
+    },
+    {
+      "trait_type": "level",
+      "value": "5"
+    },
+    {
+      "display_type": "boost_number",
+      "trait_type": "Aqua Power",
+      "value": 40
+    },
+    {
+      "display_type": "boost_percentage",
+      "trait_type": "Stamina Increase",
+      "value": 10
+    },
+    {
+      "display_type": "number",
+      "trait_type": "排名",
+      "value": 1,
+      "max_value": 30
+    },
+    {
+      "display_type": "date",
+      "trait_type": "birthday",
+      "value": 1546360800
+    }
+  ]
+}
